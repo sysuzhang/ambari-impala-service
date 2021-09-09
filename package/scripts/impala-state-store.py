@@ -13,7 +13,7 @@ class StateStore(Script):
         self.install_packages(env)
 
         cmd = 'yum-config-manager --add-repo  ' \
-              'http://archive.cloudera.com/cdh5/redhat/6/x86_64/cdh/cloudera-cdh5.repo'
+              'http://repo.topdata.cloud/repos/cloudera/cloudera-dh6.repo'
 
         Execute('echo "Running ' + cmd + '"')
         Execute(cmd)
@@ -36,19 +36,19 @@ class StateStore(Script):
         self.configure(env)
 
         self.create_hdfs_user(params.flink_user)
-        cmd = 'service impala-state-store start'
+        cmd = 'systemctl start impala-state-store'
         Execute('echo "Running cmd: ' + cmd + '"')
         Execute(cmd)
 
     #Called to stop the service using the pidfile
     def stop(self, env):
-        cmd = 'service impala-state-store stop'
+        cmd = 'systemctl stop impala-state-store'
         Execute('echo "Running cmd: ' + cmd + '"')
         Execute(cmd)
 
     #Called to get status of the service using the pidfile
     def status(self, env):
-        cmd = 'service impala-state-store status'
+        cmd = 'systemctl status impala-state-store'
         Execute('echo "Running cmd: ' + cmd + '"')
         Execute(cmd)
 
