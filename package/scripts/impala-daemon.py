@@ -13,7 +13,7 @@ class ImpalaDaemon(Script):
         self.install_packages(env)
 
         cmd = 'yum-config-manager --add-repo  ' \
-              'http://repo.topdata.cloud/repos/cloudera/cloudera-dh6.repo'
+              'http://repo.topdata.cloud/repos/cloudera/cloudera-cdh6.repo'
 
         Execute('echo "Running ' + cmd + '"')
         Execute(cmd)
