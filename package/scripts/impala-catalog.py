@@ -12,7 +12,7 @@ class ImpalaCatalog(Script):
         # Install packages listed in metainfo.xml
         self.install_packages(env)
 
-        cmd = 'yum-config-manager --add-repo  ' \
+        cmd = 'yum -y install yum-utils && yum-config-manager --add-repo  ' \
               'http://repo.topdata.cloud/repos/cloudera/cloudera-cdh6.repo'
 
         Execute('echo "Running ' + cmd + '"')
