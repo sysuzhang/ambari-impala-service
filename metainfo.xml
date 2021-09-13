@@ -36,7 +36,7 @@
                   <name>IMPALA_DAEMON</name>
                   <displayName>Impala_Daemon</displayName>
                   <category>SLAVE</category>
-                  <cardinality>1</cardinality>
+                  <cardinality>1+</cardinality>
                   <commandScript>
                     <script>scripts/impala-daemon.py</script>
                     <scriptType>PYTHON</scriptType>
@@ -48,17 +48,24 @@
 
             <osSpecifics>
               <osSpecific>
-                <osFamily>redhat6</osFamily>
+                <osFamily>redhat*</osFamily>
                 <packages>
-                   <package><name>git</name></package>    
-                   <package><name>apache-maven-3.2*</name></package>                                           
+                   <package><name>git</name></package>
+                   <package><name>apache-maven-3.2*</name></package>
                 </packages>
               </osSpecific>
-              
+
             </osSpecifics>
       	    <configuration-dependencies>
-	      <config-type>impala-ambari-config</config-type>      	   
+	          <config-type>impala-ambari-config</config-type>
       	    </configuration-dependencies>
-        </service>
+
+            <quickLinksConfigurations>
+                <quickLinksConfiguration>
+                    <fileName>quicklinks.json</fileName>
+                    <default>true</default>
+                </quickLinksConfiguration>
+            </quickLinksConfigurations>
+    </service>
     </services>
 </metainfo>

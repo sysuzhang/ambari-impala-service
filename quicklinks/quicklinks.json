@@ -1,0 +1,35 @@
+{
+  "name": "default",
+  "description": "default quick links configuration",
+  "configuration": {
+    "protocol":
+    {
+      "type":"https",
+      "checks":[
+        {
+          "property":"ssl_enable",
+          "desired":"true",
+          "site":"impala-site"
+        }
+      ]
+    },
+
+    "links": [
+      {
+        "name": "impala_ui",
+        "label": "Impala WEB-UI",
+        "requires_user_name": "false",
+        "component_name": "IMPALA_CATALOG_SERVICE",
+        "url":"%@://%@:%@/",
+        "port":{
+          "http_property": "impala.server.port",
+          "http_default_port": "25020",
+          "https_property": "impala.server.port",
+          "https_default_port": "25020",
+          "regex": "^(\\d+)$",
+          "site": "impala-site"
+        }
+      }
+    ]
+  }
+}
