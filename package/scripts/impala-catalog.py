@@ -19,7 +19,7 @@ class ImpalaCatalog(Script):
         Execute(cmd)
 
 
-        cmd = 'yum -y install  impala-server impala-catalog impala-state-store impala-shell'
+        cmd = 'yum -y install   impala-catalog  impala-shell'
         Execute('echo "Running ' + cmd + '"')
         Execute(cmd)
 

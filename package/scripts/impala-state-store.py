@@ -18,7 +18,7 @@ class StateStore(Script):
         Execute('echo "Running ' + cmd + '"')
         Execute(cmd)
 
-        cmd = 'yum -y install  impala-server impala-catalog impala-state-store impala-shell'
+        cmd = 'yum -y install  impala-state-store impala-shell'
         Execute('echo "Running ' + cmd + '"')
         Execute(cmd)
 
